@@ -1,14 +1,30 @@
 package com.rh.test;
 
+import com.rh.view.GasDeviceView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import static com.sun.xml.internal.fastinfoset.util.ValueArray.MAXIMUM_CAPACITY;
 
 public class Test1 {
     public static void main(String[] args) {
-        int capacity = roundUpToPowerOf2(9);
-        System.out.println(capacity);
+        Map<String,String> map = new HashMap<>();
 
-        capacity = tableSizeFor(8);
-        System.out.println(capacity);
+        map.put("1","1");
+        map.put("2","2");
+
+        Iterator<String> iterator = map.keySet().iterator();
+        while (iterator.hasNext()){
+            String next = iterator.next();
+            if (next.equals("2")){
+                iterator.remove();
+            }
+        }
     }
 
     private static int roundUpToPowerOf2(int number) {
